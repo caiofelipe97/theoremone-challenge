@@ -23,13 +23,17 @@ const GiveFeedback = () => {
       : []
   }, [currentUser?.id, feedbacks])
 
+  const usersExceptTheCurrentUser = React.useMemo(() => {
+    return users ? users.filter((user) => user.id !== currentUser?.id) : []
+  }, [currentUser?.id, users])
+
   return (
     <MainLayout loggedIn>
       <div className={styles.wrapper}>
         <h1>Share Feedback</h1>
-        {users && users.length > 0 && (
+        {usersExceptTheCurrentUser && usersExceptTheCurrentUser.length > 0 && (
           <ul className={styles.users}>
-            {users.map((user) => (
+            {usersExceptTheCurrentUser.map((user) => (
               <li key={user.id} className={styles.user}>
                 <User name={user.name} avatarUrl={user.avatarUrl} />
                 <span style={{ flex: 1 }} />
