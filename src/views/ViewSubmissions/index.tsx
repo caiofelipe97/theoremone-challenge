@@ -4,7 +4,6 @@ import { useHistory, useParams } from 'react-router-dom'
 import ScaleAnswer from '../../components/ScaleAnswer'
 import { AccountContext } from '../../context/AccountProvider'
 import { FeedbackContext, FeedbackT } from '../../context/FeedbackProvider'
-import { UserContext } from '../../context/UserProvider'
 import MainLayout from '../../layouts/MainLayout'
 import styles from './viewSubmissions.module.css'
 
@@ -13,7 +12,6 @@ interface ViewSubmissionsRouteParams {
 }
 
 const ViewSubmissions = () => {
-  const users = React.useContext(UserContext)
   const feedbacks = React.useContext(FeedbackContext)
   const currentUser = React.useContext(AccountContext)
   const [userFeedback, setUserFeedback] = React.useState<FeedbackT | null>(null)
@@ -34,7 +32,7 @@ const ViewSubmissions = () => {
     } else {
       history.push('/share-feedback/not-found')
     }
-  }, [currentUser?.id, feedbacks, history, userId, users])
+  }, [currentUser?.id, feedbacks, history, userId])
 
   const handleBackToFeedbacks = React.useCallback(() => {
     history.goBack()
