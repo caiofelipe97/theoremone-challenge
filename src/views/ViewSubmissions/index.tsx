@@ -3,8 +3,7 @@ import { AiOutlineLeft } from 'react-icons/ai'
 import { useHistory, useParams } from 'react-router-dom'
 import ScaleAnswer from '../../components/ScaleAnswer'
 import { AccountContext } from '../../context/AccountProvider'
-import { FeedbackContext } from '../../context/FeedbackProvider'
-import { UserT } from '../../context/types'
+import { FeedbackContext, FeedbackT } from '../../context/FeedbackProvider'
 import { UserContext } from '../../context/UserProvider'
 import MainLayout from '../../layouts/MainLayout'
 import styles from './viewSubmissions.module.css'
@@ -17,32 +16,25 @@ const ViewSubmissions = () => {
   const users = React.useContext(UserContext)
   const feedbacks = React.useContext(FeedbackContext)
   const currentUser = React.useContext(AccountContext)
-  const [feedbackUser, setFeedbackUser] = React.useState<UserT | null>(null)
+  const [userFeedback, setUserFeedback] = React.useState<FeedbackT | null>(null)
   const history = useHistory()
   let { userId } = useParams<ViewSubmissionsRouteParams>()
 
   React.useEffect(() => {
-    if (userId && users) {
-      const user = users?.find((user) => user.id === userId)
-      if (user) {
-        setFeedbackUser(user)
+    if (userId && feedbacks) {
+      const feedback = feedbacks.find(
+        (feedback) =>
+          feedback.from.id === currentUser?.id && feedback.to.id === userId,
+      )
+      if (feedback) {
+        setUserFeedback(feedback)
       } else {
         history.push('/share-feedback/not-found')
       }
     } else {
       history.push('/share-feedback/not-found')
     }
-  }, [history, userId, users])
-
-  const userFeedback = React.useMemo(() => {
-    return feedbacks
-      ? feedbacks.find(
-          (feedback) =>
-            feedback.from.id === currentUser?.id &&
-            feedback.to.id === feedbackUser?.id,
-        )
-      : null
-  }, [currentUser?.id, feedbackUser?.id, feedbacks])
+  }, [currentUser?.id, feedbacks, history, userId, users])
 
   const handleBackToFeedbacks = React.useCallback(() => {
     history.goBack()
@@ -60,7 +52,7 @@ const ViewSubmissions = () => {
           Back
         </button>
         <div className={styles.container}>
-          <h2 className={styles.title}>{feedbackUser?.name}'s Feedback</h2>
+          <h2 className={styles.title}>{userFeedback?.to?.name}'s Feedback</h2>
           {userFeedback && userFeedback.questionAnswers.length > 0 ? (
             <ul className={styles.questions}>
               {userFeedback.questionAnswers.map((questionAnswer) => (
