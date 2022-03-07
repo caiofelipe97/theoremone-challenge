@@ -113,7 +113,7 @@ const GiveUserFeedback = () => {
           <AiOutlineLeft
             className={styles.backIcon}
             color={'#59636e'}
-            size={24}
+            size={15}
           />
           Back
         </button>

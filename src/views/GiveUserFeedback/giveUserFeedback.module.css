@@ -29,8 +29,12 @@
   color: #59636ea6;
 }
 
+.back:hover :first-child {
+  color: #59636ea6;
+}
+
 .backIcon {
-  margin-right: 9px;
+  margin-right: 5px;
 }
 
 .questionLabel {
