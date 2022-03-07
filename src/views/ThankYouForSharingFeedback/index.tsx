@@ -25,7 +25,7 @@ const ThankYouForSharingFeedback = () => {
                     feedback.to.id === user.id,
                 )
               : false
-            return !findUserFeedback
+            return !findUserFeedback && user.id !== currentUser?.id
           })
           .slice(0, 3)
       : []
