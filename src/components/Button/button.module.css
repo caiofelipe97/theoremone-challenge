@@ -9,6 +9,7 @@
   padding: 12px 50px;
   text-decoration: none;
   transition: var(--animDuration) var(--animEase);
+  text-align: center;
 }
 
 .button:hover {
@@ -25,4 +26,19 @@
 
 .secondaryButton:hover {
   background-color: var(--primaryLightColor);
+}
+
+.disabledButton {
+  background-color: #acb1b6;
+  border: 1px solid #acb1b6;
+  color: var(--copyLightColor);
+  cursor: default;
+
+}
+
+
+.disabledButton:hover {
+  background-color: #acb1b6;
+  border: 1px solid #acb1b6;
+  color: var(--copyLightColor);
 }

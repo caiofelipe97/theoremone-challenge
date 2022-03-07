@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <div className={styles.header}>
       <h1>Honesto</h1>
-      <NavLink exact to="/share-feedback" activeClassName={styles.active}>
+      <NavLink to="/share-feedback" activeClassName={styles.active}>
         Share Feedback
       </NavLink>
       <NavLink exact to="/my-feedback" activeClassName={styles.active}>
