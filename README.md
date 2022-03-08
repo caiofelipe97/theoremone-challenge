@@ -64,3 +64,6 @@ Feel free to also implement any the following task if you are just getting warme
 ### Task 3: Display Received Feedback 
 - I reused the MyFeedback view to make the TeamFeedback view, but instead of showing feedback from the user, I’m showing the feedback to the user. 
 - As the task was very simple, I added a new behavior to read received feedback, so I use the Figma design to show “new” feedback on the TeamFeedback page, and I’m also showing the number of unread feedbacks on the Navigation Tab.
+
+### Observations
+I tried to keep the project structure, the same name pattern, and even when I changed some components I did it keeping the old behavior working as well.
