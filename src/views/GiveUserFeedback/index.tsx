@@ -88,6 +88,7 @@ const GiveUserFeedback = () => {
         from: currentUser,
         to: selectedUser,
         questionAnswers: [...answers, lastQuestionAnswer],
+        read: false,
       }
       feedbackDispatch({
         action: 'add',

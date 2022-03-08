@@ -12,6 +12,7 @@ export type FeedbackT = {
   from: UserT
   to: UserT
   questionAnswers: QuestionAnswerT[]
+  read: boolean
 }
 
 type DispatchFeedbackContextT = any
@@ -25,13 +26,33 @@ type SubmitFeedbackT = {
   payload: FeedbackT
 }
 
+type ReadFeedbackT = {
+  action: 'read'
+  payload: FeedbackT
+}
+
 const reducer = (
   state: FeedbackT[] | null,
-  update: SubmitFeedbackT,
+  update: SubmitFeedbackT | ReadFeedbackT,
 ): FeedbackT[] | null => {
   if (update.action === 'add') {
     return state ? [...state, update.payload] : [update.payload]
   }
+  if (update.action === 'read') {
+    return state
+      ? state.map((feedback) => {
+          if (
+            feedback.from.id === update.payload.from.id &&
+            feedback.to.id === update.payload.to.id
+          ) {
+            return { ...feedback, read: true }
+          } else {
+            return feedback
+          }
+        })
+      : state
+  }
+
   return state
 }
 
