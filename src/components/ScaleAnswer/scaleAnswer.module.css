@@ -1,0 +1,17 @@
+.scaleContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.scale {
+  background: #f2f3f4;
+  border: 2px solid #ffffff;
+  box-sizing: border-box;
+  width: 33px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.active {
+  background: #ab61e5;
+}
