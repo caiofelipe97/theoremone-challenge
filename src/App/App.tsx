@@ -16,6 +16,7 @@ import PrivateRoute from '../components/Routing/PrivateRoute'
 import ThankYouForSharingFeedback from '../views/ThankYouForSharingFeedback'
 import ShareFeedbackNotFound from '../views/ShareFeedbackNotFound'
 import ViewSubmissions from '../views/ViewSubmissions'
+import TeamFeedback from '../views/TeamFeedback'
 
 const App = () => {
   const currentUser = React.useContext(AccountContext)
@@ -73,6 +74,10 @@ const App = () => {
           </PrivateRoute>
           <PrivateRoute isLoggedIn={isLoggedIn} path="/share-feedback/*">
             <ShareFeedbackNotFound />
+          </PrivateRoute>
+
+          <PrivateRoute isLoggedIn={isLoggedIn} exact path="/team-feedback">
+            <TeamFeedback />
           </PrivateRoute>
 
           <PrivateRoute isLoggedIn={isLoggedIn} exact path="/components">
