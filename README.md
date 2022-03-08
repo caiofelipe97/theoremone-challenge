@@ -40,11 +40,11 @@ Feel free to also implement any the following task if you are just getting warme
 
 - [ ] Add Accessibility (A11y) testing and update components to comply
 - [ ] Create a dark theme for the project
-- [ ] Make the logged user widget, displayed in the upper-right corner the same as in designs
+- [X] Make the logged user widget, displayed in the upper-right corner the same as in designs
 - [ ] Make the app more responsive on various devices
 - [ ] Update the app to have multiple feedback collections (per month) for each user
 - [ ] Write some tests (jest, cypress, react testing library, etc)
-- [ ] Add documentation about your tasks to help other developers understand decisions you made
+- [X] Add documentation about your tasks to help other developers understand decisions you made
 
 
 
