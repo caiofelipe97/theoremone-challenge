@@ -47,3 +47,20 @@ Feel free to also implement any the following task if you are just getting warme
 - [ ] Add documentation about your tasks to help other developers understand decisions you made
 
 
+
+## Task solutions
+### Task 1: Gather Feedback
+- I created a new view called GiveUserFeedback which contains the content of the questions. And for this component, I created a component called Question to handle all the different types of questions. 
+- To keep the user on the same navigator tab, I changed the share-feedback navigation property “exact” to false.
+- I’m also handling not-found requests inside the `/share-feedback/*` URL. 
+- When the user submits the feedback, it dispatches a reducer on the new FeedbackContext which handles the feedback data. Feedback structure: `{ from: UserT, to: UserT, questionAnswers: QuestionAnswerT[]}`. and then it takes the user to the `/share-feedback/thank-you` page. 
+- When the user comes back to the share-feedback page he can see his submissions saved on the FeedbackContext  in the `/share-feedback/submissions/:UserId` page
+
+### Task 2: Display Feedback Given
+- To display the comments provided I redid the review comments page and rewrite it as the comments page because it makes more sense to me
+- I reused the same component on the `/share-feedback/submissions/:UserId` to show the user answers, retrieving the user feedback from the FeedbackContext and adding some behaviors as select user feedback, hover, and so on.
+- I’m also handling cases where there’s no feedback given.
+
+### Task 3: Display Received Feedback 
+- I reused the MyFeedback view to make the TeamFeedback view, but instead of showing feedback from the user, I’m showing the feedback to the user. 
+- As the task was very simple, I added a new behavior to read received feedback, so I use the Figma design to show “new” feedback on the TeamFeedback page, and I’m also showing the number of unread feedbacks on the Navigation Tab.
