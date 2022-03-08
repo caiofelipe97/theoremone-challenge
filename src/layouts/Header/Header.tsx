@@ -48,7 +48,17 @@ const Header = () => {
       </NavLink>
       <span className={styles.spacer} />
       <NavLink exact to="/" onClick={handleLogout}>
-        Logout {currentUser && `${currentUser.name}`}
+        <img
+          src={currentUser?.avatarUrl}
+          alt="User Avatar"
+          className={styles.avatar}
+        />
+        <div className={styles.userHeader}>
+          <span className={styles.username}>
+            {currentUser && `${currentUser.name}`}
+          </span>
+          <span className={styles.logout}>Logout</span>
+        </div>
       </NavLink>
     </div>
   )
