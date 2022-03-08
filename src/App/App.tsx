@@ -10,7 +10,7 @@ import GiveUserFeedback from '../views/GiveUserFeedback'
 import Home from '../views/Home'
 import http from '../common/http'
 import NotFound from '../views/NotFound'
-import ReviewFeedback from '../views/ReviewFeedback'
+import MyFeedback from '../views/MyFeedback'
 import { AccountContext } from '../context/AccountProvider'
 import PrivateRoute from '../components/Routing/PrivateRoute'
 import ThankYouForSharingFeedback from '../views/ThankYouForSharingFeedback'
@@ -48,7 +48,7 @@ const App = () => {
             <Home />
           </Route>
           <PrivateRoute isLoggedIn={isLoggedIn} exact path="/my-feedback">
-            <ReviewFeedback />
+            <MyFeedback />
           </PrivateRoute>
           <PrivateRoute isLoggedIn={isLoggedIn} exact path="/share-feedback">
             <GiveFeedback />
